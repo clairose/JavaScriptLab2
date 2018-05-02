@@ -29,7 +29,9 @@ class AddressBook {
         this.contacts.splice(index, 1);
     }
     print() {
-        console.log(this.contacts);
+        for(let contact in this.contacts) {
+            console.log(this.contacts[contact]);
+        }
     }
     deleteByName() {
         let xname = prompt("Please enter the name of the contact that you would like to delete.");
