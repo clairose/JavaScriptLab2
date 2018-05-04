@@ -6,6 +6,9 @@ class Contact {
         this.phone = phone;
         this.relation = relation;
     }
+    printDetails() {
+        return this.name + this.email + this.phone + this.relation;
+    }
 }
 
 class AddressBook {
@@ -17,16 +20,26 @@ class AddressBook {
         this.contacts[1]=billy;
     }
     Add() {
-        let name = prompt("Please input your contact's name.");
-        let email = prompt("Please input your contact's email.");
-        let phone = prompt("Please input your contact's phone number.");
-        let relation = prompt("What is your relation to this person?");
+        let name =document.getElementById("nameID").value;
+        let email =document.getElementById("emailID").value;
+        let phone =document.getElementById("phoneID").value;
+        let relation =document.getElementById("relationshipID").value;
         let newFriend = new Contact(name, email, phone, relation);
         this.contacts.push(newFriend);
+        let el = document.querySelector("#contacts");
+
+        for(let current in this.contacts) {
+            el.innerHTML += "<p id='"+ current+"'>" + this.contacts[current].printDetails() + "</p>";
+        }
+
     }
     deleteAt() {
         let index = prompt("Please enter the index of the contact that you would like to delete.");
-        this.contacts.splice(index, 1);
+        var parent = document.getElementById("contacts");
+        var child = document.getElementById(`${index}`);
+        parent.removeChild(child);
+        //let index = prompt("Please enter the index of the contact that you would like to delete.");
+        //this.contacts.splice(index, 1);
     }
     print() {
         for(let contact in this.contacts) {
@@ -43,21 +56,22 @@ class AddressBook {
 
 let book = new AddressBook();
 
-while(true) {
-    let input = prompt("Do you wish to (add), delete by index(i), delete by name(n), (print), or (quit)?");
-    if (input === "add") {
-        book.Add();
-    } else if (input === "quit") {
-        console.log("Goodbye!");
-        break;
-    } else if (input === "n") {
-        book.deleteByName();
-    } else if(input === "i") {
-        book.deleteAt();
-    } else if (input === "print") {
-        book.print();
-    } else {
-        console.log("Sorry I didn't understand that!");
-        console.log("Let's try that again.");
-    }
-}
+
+// while(true) {
+//     let input = prompt("Do you wish to (add), delete by index(i), delete by name(n), (print), or (quit)?");
+//     if (input === "add") {
+//         book.Add();
+//     } else if (input === "quit") {
+//         console.log("Goodbye!");
+//         break;
+//     } else if (input === "n") {
+//         book.deleteByName();
+//     } else if(input === "i") {
+//         book.deleteAt();
+//     } else if (input === "print") {
+//         book.print();
+//     } else {
+//         console.log("Sorry I didn't understand that!");
+//         console.log("Let's try that again.");
+//     }
+// }

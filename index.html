@@ -1,1 +1,24 @@
-<script src="addressBook.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript Fun</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+    <script src="addressBook.js"></script>
+    <div id="ID">
+        <p>My Contacts</p>
+    <form action="addressBook.js"></form> 
+        <input type="text" name="name" id="nameID" value="name" />
+        <input type="text" name="email" id="emailID" value="email" />
+        <input type="text" name="phone" id="phoneID" value="phone" />
+        <input type="text" name="relationship" id="relationshipID" value="relationship" />
+        <button onclick="book.Add(); ">Add</button>
+        <button onclick="book.deleteAt(); ">Delete</button>
+    </form>
+    </div>
+    <div id="contacts"></div>
+</body>
+
+</html>
