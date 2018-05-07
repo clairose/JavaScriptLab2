@@ -6,7 +6,6 @@
 </head>
 
 <body>
-    <script src="addressBook.js"></script>
     <div id="ID">
         <p>My Contacts</p>
     <form action="addressBook.js"></form> 
@@ -14,11 +13,12 @@
         <input type="text" name="email" id="emailID" value="email" />
         <input type="text" name="phone" id="phoneID" value="phone" />
         <input type="text" name="relationship" id="relationshipID" value="relationship" />
-        <button onclick="book.Add(); ">Add</button>
-        <button onclick="book.deleteAt(); ">Delete</button>
+        <button onclick="book.add(); ">Add</button>
+        <!-- <button onclick="deleteAt(); ">Delete</button> -->
     </form>
     </div>
     <div id="contacts"></div>
+    <script src="addressBook.js"></script>
 </body>
 
 </html>
