@@ -23,20 +23,22 @@ class AddressBook {
         let relation =document.getElementById("relationshipID").value;
         let newFriend = new Contact(name, email, phone, relation);
         this.contacts.push(newFriend);
-        let el = document.querySelector("#contacts");
-        var para = document.createElement("p");
-        para.setAttribute = ("id", "newtext");
-        para.innerHTML += newFriend.printDetails() + `<button onlcick=${book.deleteAt()}></button>`;
+        var i = this.contacts.indexOf(newFriend)
+        let el = document.getElementById("contacts");
+        let para = document.createElement("p");
+        para.id = `${i}`;
+        para.innerHTML += newFriend.printDetails() + `<button onclick='book.deleteAt(${i})'>Delete</button>`;
         el.appendChild(para);
     }
-    deleteAt() {
-        var del = document.getElementById("newtext");
-        var par = document.getElementById("contacts")
-        del.parentNode.removeChild(del);
+    deleteAt(i) {
+        let del = document.getElementById(`${i}`);
+        console.log(del);
+        let par = document.getElementById("contacts");
+        par.removeChild(del);
         }
     }
 
-}
+
 
 let book = new AddressBook();
 
